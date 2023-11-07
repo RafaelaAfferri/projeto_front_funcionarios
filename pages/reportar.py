@@ -58,7 +58,10 @@ with st.form("Formulário",clear_on_submit=True):
                 save_uploaded_file(foto)
                 lat,lon = uts.give_lat_lon(rua,bairro)
                 data = {'bairro': bairro ,'rua': rua, 'problema_tipo':problema_tipo, 'urgencia': urgencia, 'problema_descricao': problema_descricao,'data_inicio': data_inicio,'latitude':lat,'longitude':lon}
-                file= {'foto':open(f'./photos/{foto.name}','rb')}
+                photo_dir = './photos'
+                if not os.photo_dir.exists(photo_dir):
+                   os.mkdir('./photos')
+                file= {'foto':open(f'./{photo_dir}/{foto.name}','rb')}
                 salvou, mensagem = uts.registra_problema(data,file)
                 if salvou: 
                     st.balloons()
