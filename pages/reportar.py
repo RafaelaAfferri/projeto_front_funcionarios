@@ -61,7 +61,7 @@ with st.form("Formulário",clear_on_submit=True):
                 photo_dir = './photos'
                 if not os.photo_dir.exists(photo_dir):
                    os.mkdir('./photos')
-                file= {'foto':open(f'./{photo_dir}/{foto.name}','rb')}
+                file= {'foto':open(f'{photo_dir}/{foto.name}','rb')}
                 salvou, mensagem = uts.registra_problema(data,file)
                 if salvou: 
                     st.balloons()
